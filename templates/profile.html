@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi perfil — Folios</title>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar__profile">
+        <div class="sidebar__avatar"><i class="bi bi-person"></i></div>
+        <div>
+          <h2 id="sidebarNombre">Estudiante</h2>
+          <p id="sidebarDetalle">Universidad de Medellín</p>
+        </div>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Navegación lateral">
+        <a href="documents.html" class="sidebar__link">
+          <i class="bi bi-journal-text"></i>
+          <span>Explorar apuntes</span>
+        </a>
+        <a href="upload_document.html" class="sidebar__link">
+          <i class="bi bi-cloud-arrow-up"></i>
+          <span>Subir documento</span>
+        </a>
+        <a href="my_documents.html" class="sidebar__link">
+          <i class="bi bi-files"></i>
+          <span>Mis documentos</span>
+        </a>
+        <a href="profile.html" class="sidebar__link active">
+          <i class="bi bi-person-circle"></i>
+          <span>Mi perfil</span>
+        </a>
+      </nav>
+
+      <div class="sidebar__footer">
+        <button type="button" class="btn btn-outline sidebar__logout" id="btnCerrarSesionSidebar">
+          <i class="bi bi-box-arrow-right"></i>
+          Cerrar sesión
+        </button>
+      </div>
+    </aside>
+
+    <div class="content-area">
+      <!-- ==================== NAVBAR ==================== -->
+      <header>
+        <nav class="navbar container">
+          <a href="index.html" class="navbar__logo">
+            <img src="../static/assets/logo.png" alt="Logo Folios">
+            Folios
+          </a>
+
+          <button type="button" class="navbar__toggle" aria-label="Abrir menú">
+            <i class="bi bi-list"></i>
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <!-- ==================== ENCABEZADO ==================== -->
+        <section class="docs-header">
+          <div class="container">
+            <h1>Mi perfil</h1>
+          </div>
+        </section>
+
+        <!-- ==================== DATOS DEL ESTUDIANTE (HU-09) ==================== -->
+        <section class="docs-list">
+          <div class="container">
+            <div class="doc-detalle" id="perfilDatos">
+              <h1 id="perfilNombre">Cargando…</h1>
+              <p class="doc-card__meta" id="perfilCorreo"></p>
+              <dl class="perfil-datos">
+                <dt>Programa</dt>
+                <dd id="perfilPrograma">—</dd>
+                <dt>Semestre</dt>
+                <dd id="perfilSemestre">—</dd>
+                <dt>Puntaje</dt>
+                <dd id="perfilPuntaje">—</dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ==================== FOOTER ==================== -->
+      <footer class="footer">
+        <div class="container">
+          <ul class="footer__links">
+            <li><a href="index.html">Inicio</a></li>
+          </ul>
+          <p>&copy; 2026 Folios. Proyecto académico.</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>

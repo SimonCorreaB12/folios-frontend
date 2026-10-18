@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión — Folios</title>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header>
+    <nav class="navbar container">
+      <a href="index.html" class="navbar__logo">
+        <img src="../static/assets/logo.png" alt="Logo Folios">
+        Folios
+      </a>
+
+      <button type="button" class="navbar__toggle" aria-label="Abrir menú">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div class="navbar__buttons">
+        <a href="index.html" class="btn btn-primary">Inicio</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <div class="container">
+        <div class="form-card">
+          <h1>Iniciar sesión</h1>
+          <span class="form-card__subtitle">Ingresa con tu correo institucional</span>
+
+          <form id="formLogin" novalidate>
+
+            <div class="form-group">
+              <label for="correo">Correo institucional</label>
+              <input type="email" id="correo" name="correo" placeholder="nombre@soyudemedellin.edu.co" required>
+              <span class="form-error" id="errorCorreo"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contrasena">Contraseña</label>
+              <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" required>
+              <span class="form-error" id="errorContrasena"></span>
+            </div>
+
+            <span class="form-error" id="errorGeneral"></span>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+          </form>
+
+          <p class="form-footer-text">¿No tienes cuenta? <a href="register.html">Regístrate</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer__links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="register.html">Registrarse</a></li>
+      </ul>
+      <p>&copy; 2026 Folios. Proyecto académico.</p>
+    </div>
+  </footer>
+
+  <script src="../static/js/app.js"></script>
+</body>
+</html>
