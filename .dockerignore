@@ -4,7 +4,6 @@
 Dockerfile
 .dockerignore
 node_modules
-tests
 package.json
 package-lock.json
 playwright.config.js
