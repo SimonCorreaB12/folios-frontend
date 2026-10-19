@@ -725,10 +725,16 @@ p {
   color: var(--color-border);   /* estrella vacía */
 }
 
-.doc-calificar__estrellas button.seleccionada,
-.doc-calificar__estrellas button:hover,
+.doc-calificar__estrellas button.seleccionada {
+  color: #E7B10A;   
+}
+
+.doc-calificar__estrellas:hover button {
+  color: #E7B10A;
+}
+
 .doc-calificar__estrellas button:hover ~ button {
-  color: #E7B10A;   /* misma familia de amarillo que la estrella de la tarjeta */
+  color: var(--color-border);
 }
 
 .doc-comentario {
