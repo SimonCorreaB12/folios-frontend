@@ -1,7 +1,6 @@
 .git
 .gitignore
 .DS_Store
-Dockerfile
 .dockerignore
 node_modules
 package.json
