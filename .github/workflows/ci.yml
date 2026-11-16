@@ -7,31 +7,40 @@ on:
     branches: [main]
 
 jobs:
-  # JOB 1: prueba de humo, construir la imagen y verificar que nginx sirve el sitio
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Construir imagen de prueba
-        run: docker build -t folios-frontend:test .
+      - name: Construir la imagen
+        run: docker build -t folios-frontend:ci .
 
-      - name: Levantar nginx
-        # --add-host: nginx exige que el host "backend" exista al arrancar
-        run: docker run -d --name web -p 8080:80 --add-host backend:127.0.0.1 folios-frontend:test
+      - name: Arrancar el contenedor
+        # nginx verifica al arrancar que "backend" exista; aquí no hay backend,
+        # así que lo apuntamos a localhost solo para que nginx inicie
+        run: docker run -d --name web -p 8080:80 --add-host backend:127.0.0.1 folios-frontend:ci
 
-      - name: Verificar que las páginas responden
+      - name: Comprobar que nginx sirve el sitio
         run: |
-          sleep 3
-          curl -f http://localhost:8080/
-          curl -f http://localhost:8080/templates/login.html
-          curl -f http://localhost:8080/static/js/app.js
+          sleep 2
+          curl --fail http://localhost:8080/templates/index.html > /dev/null
 
-      - name: Logs de nginx si algo falla
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar Playwright
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Pruebas de Playwright que no dependen de la API
+        run: npx playwright test --grep "página de inicio|sin sesión"
+
+      - name: Logs de nginx si algo falló
         if: failure()
         run: docker logs web
 
-  # JOB 2: publicar la imagen, SOLO si la prueba pasó
   build-push:
     needs: test
     if: github.event_name == 'push'
@@ -56,5 +65,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/folios-frontend:${{ env.SHORT_SHA }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/folios-frontend:latest
+            scorrea884/folios-frontend:${{ env.SHORT_SHA }}
+            scorrea884/folios-frontend:latest
