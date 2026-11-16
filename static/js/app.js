@@ -3,7 +3,7 @@
    JavaScript Vanilla — comportamiento compartido por las páginas.
    ========================================================================== */
 
-const API_URL = 'http://127.0.0.1:8000';   // dirección del backend: un solo lugar para cambiarla
+const API_URL = '';   // dirección del backend: un solo lugar para cambiarla
 const TOKEN_KEY = 'foliosToken';           // clave de localStorage donde se guarda el token
 
 document.addEventListener('DOMContentLoaded', () => {
